@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js."></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <style>
+      
+      *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+     }
+
+.content{  
+
+    /* background: url(images/bgrimg.jpg); */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/parking.jpg'); 
+    background-size: cover;
+    /* position: absolute; */
+    top:0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.9;
+}
+.heading{
+     display: flex;
+    justify-content: center;
+    background-color: blue;
+    color: white;
+    height: 80px;
+    /* padding: 0px 0 0 320px; */
+   
+   
+}
+.heading h1{
+padding-top: 20px;
+}
+.heading img{
+    position:fixed; 
+	top:0; 
+	left:0;
+    width: 80px;
+    height: 80px;
+  
+}
+.content{
+    display: flex;
+    
+}
+
+ .form{
+   margin: 10px 0 0 100px;
+   /* border: 2px solid black; */
+   padding: 20px;
+   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+   /* text-align: center; */
+   width: 500px;
+   font-weight: bold;
+   color: white;
+ 
+   /* margin-top: 50px; */
+   /* margin-left: 180px; */
+
+  
+}
+.form h2{
+   padding-left: 160px;
+   color: white;
+}
+.form .entry{
+    background-color: blue;
+    padding: 5px;
+}
+.form input{
+    text-align: center;       
+    display: block;       
+    width: 289px;       
+    padding: 7px;       
+    margin: 8px 0 0 0;       
+    border: 2px solid black;       
+    font-size: 18px;       
+    border-radius: 15px;  
+}
+.form select{
+    padding: 7px;       
+    /* margin: 8px auto;        */
+    border: 2px solid black;       
+    font-size: 18px;       
+    border-radius: 15px; 
+    display: block;
+    margin: 8px 0 0 0;
+    width: 289px;
+}
+.form .submit{
+    background-color: blue;
+    color: white;
+    
+}
+.form .submit:hover{
+  background-color: white;
+  color: blue;
+}
+
+.calculator{
+    margin: 10px 0px 0 200px;
+    /* border: 2px solid black; */
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    /* text-align: center; */
+    width: 400px;
+    font-weight:bold;
+    color: white;
+    /* margin-top: 50px; */
+    /* margin-left: 180px; */
+   
+  
+}
+.calculator .calculate{
+    background-color: blue;
+    padding: 5px;
+}
+.calculator h2{
+    padding-left: 70px;
+    color: white;
+}
+.calculator input{
+    text-align: center;       
+    display: block;       
+    width: 289px;       
+    padding: 7px;       
+    margin: 8px 0 0 0;       
+    border: 2px solid black;       
+    font-size: 18px;       
+    border-radius: 15px;  
+}
+.calculator select{
+    padding: 7px;       
+    /* margin: 8px auto;        */
+    border: 2px solid black;       
+    font-size: 18px;       
+    border-radius: 15px; 
+    display: block;
+    margin: 8px 0 0 0;
+    width: 289px;
+}
+.calculator button{
+    padding: 20px;       
+    /* margin: 8px auto;        */
+    border: 2px solid black;       
+    font-size: 18px;   
+    background-color: blue;
+    color: white;
+    margin:20px 0 0 80px;
+        
+    /* border-radius: 15px; */
+}
+ #result{
+    font-size: 1.5rem;
+    color: white;
+}
+.calculator button:hover{
+    background-color: white;
+  color: blue;
+}
+.buttons{
+    display: flex;
+    margin-top: -10px;
+}
+    </style>
+</head>
+<body>
+    <div class="heading">
+     <img src="/sign.jpg" alt=""> 
+     <h1> Vehicle Parking Management system</h1>
+    </div>
+
+    <div class="content">
+      <div class="form">
+       <div class="entry"> <h2 id="entime">Entry</h2></div> <br>
+        <form action="/" method="POST">
+          Name: <input type="text" name="names"> <br>
+        Contact Number:  <input type="number" name="contacts"> <br>
+        {{!-- Vehicle Type: <select class="vehicletypes" name="vehicletypes" >
+          <option name="" value="selectvehicle">select vehicle</option>
+          <option name="option1" value="twowheeler">Two-wheeler</option>
+          <option name="option2" value="fourwheeler">Four wheeler</option>
+        </select> <br> --}}
+        Vehicle Number:  <input type="text" name="vehiclenumbers"> <br>
+        Entry Date and time: <input type="datetime-local" name="entrytimes"> <br>
+        <div class="buttons">
+          <input class="submit" type="submit" value="Submit">
+          <input onclick="pdf()" class="submit" type="submit" value="Generate slip">
+      
+        </div>
+</form>
+           <!-- <button id="btn" onclick="pdf()">Generate slip</button> -->
+      </div>
+      
+  <div class="calculator">
+   <div class="calculate"><h2>Fare calculator</h2></div> <br>
+    <form action="">
+      Vehicle Type: <select name="" id="">
+        <option value="">select vehicle</option>
+        <option value="">Two-wheeler</option>
+        <option value="">Four wheeler</option>
+      </select> <br>
+      Entry Date and time: <input type="datetime-local" value="" id="entry"> <br>
+      Exit Date and time: <input type="datetime-local" value="" id="exit"> <br>
+    </form>
+    <button class="calculate" onclick="func1()">Calculate price</button>
+    <div id="result"></div>
+    
+  </div>
+</div>
+
+    
+    
+
+<script>
+  let func1=()=>{
+    let date1=document.getElementById('entry').value;
+    let date2=document.getElementById('exit').value;
+    // let vehicleselected=document.getElementById('vehicleselect');
+    let d1=new Date(date1);
+    let d2=new Date(date2);
+    let time=Math.round(d2-d1);
+    let hours=Math.round(time/(1000*60*60));
+    let days=Math.round(time/(1000*60*60*24));
+   let price;
+   if (hours<=12) {
+    price=10;
+   }
+   else if (hours<=24) {
+    price=20;
+   } 
+   
+   else if (hours>24) {
+    price=days*20;
+   } 
+   else {
+    price=undefined;
+   }
+    document.getElementById('result').innerHTML=`&#x20B9;${price}`;
+}
+
+
+ let pdf=()=>{
+
+// let title=document.getElementById('entime').innerText;
+let n=document.getElementsByName('names').innertext;
+let c=document.getElementsByName('contacts').innertext;
+let vn=document.getElementsByName('vehiclenumbers').innertext;
+let et=document.getElementsByName('entrytimes').innertext;
+
+let n1=document.getElementsByName('names').value;
+let c1=document.getElementsByName('contacts').value;
+let vn1=document.getElementsByName('vehiclenumbers').value;
+let et1=document.getElementsByName('entrytimes').value;
+
+    let doc=new jsPDF();
+    doc.setFontSize(22);
+    doc.text("slip",20,10);
+    doc.setFontSize(18);
+     doc.text("name: "   +n1,10,20);
+     doc.text("contact: "   +c1,10,20);
+     doc.text("vehicle no: "   +vn1,10,20);
+     doc.text("entry time: "   +et1,10,20);
+    doc.save("slip.pdf");
+
+  
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+
+</body>
+</html>

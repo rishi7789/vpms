@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+             *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+        .heading{
+     display: flex;
+    justify-content: center;
+    background-color: blue;
+    color: white;
+    height: 80px;
+
+   
+   
+}
+.heading h1{
+padding-top: 20px;
+}
+.heading img{
+    position:fixed; 
+	top:0; 
+	left:0;
+    width: 80px;
+    height: 80px;
+  
+}
+        .login-form {
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 100px 0 0 450px;
+        }
+
+        .login-form h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .login-form label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .login-form #btn {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+        .login-form p a{
+            color: black;
+        }
+</style>
+
+</head>
+<body>
+
+   <div class="heading">
+     <img src="/sign.jpg" alt=""> 
+     <h1> Vehicle Parking Management system</h1>
+    </div>
+
+    <div class="login-form">
+        <h2>Admin Login</h2>
+        <form action="/login" method="POST">
+            <label for="username">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+       <input type="submit" value="Login" id="btn">
+        </form>
+        <p>Don't have account? <a href="/signup">signup</a> </p>
+    </div>
+
+</body>
+</html>
